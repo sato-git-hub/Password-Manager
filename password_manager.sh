@@ -34,6 +34,7 @@ while true; do
  elif [[ "$select" == "Exit" ]]; then
 
   echo "Thank you!"
+  exit 0
 
  else
 
