@@ -18,9 +18,9 @@ elif [[ "$select" == "Get Password" ]]; then
 
  read -p "サービス名を入力してください：" get_service
 
- if grep -q "$get_service" password.txt; then
+ if grep -q "^$get_service" password.txt; then
 
-IFS=":" read -r -a array <<< $(grep "$get_service" password.txt)
+  IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
 
   echo "サービス名：" ${array[0]}
   echo "ユーザー名：" ${array[1]}
@@ -33,4 +33,5 @@ IFS=":" read -r -a array <<< $(grep "$get_service" password.txt)
 
 
 fi
+
 
