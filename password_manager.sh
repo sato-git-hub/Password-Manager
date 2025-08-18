@@ -33,6 +33,10 @@ elif [[ "$select" == "Exit" ]]; then
 
  echo "Thank you!"
 
+else
+
+ echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
+
 fi
 
 
