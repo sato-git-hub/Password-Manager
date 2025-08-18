@@ -1,42 +1,43 @@
 #!/bin/bash
 
-echo "パスワードマネージャーへようこそ！"
-read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
+ echo "パスワードマネージャーへようこそ！"
 
-if [[ "$select" == "Add Password" ]]; then
+while true; do
+ read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
 
- read -p "サービス名を入力してください：" add_service
- read -p "ユーザー名を入力してください：" add_user
- read -p "パスワードを入力してください：" add_password
+ if [[ "$select" == "Add Password" ]]; then
 
- echo "$add_service:$add_user:$add_password" >> password.txt
+  read -p "サービス名を入力してください：" add_service
+  read -p "ユーザー名を入力してください：" add_user
+  read -p "パスワードを入力してください：" add_password
 
- echo "パスワードの追加は成功しました。"
- echo "Thank you!"
+  echo "$add_service:$add_user:$add_password" >> password.txt
 
-elif [[ "$select" == "Get Password" ]]; then
+  echo "パスワードの追加は成功しました。"
+  echo "Thank you!"
 
- read -p "サービス名を入力してください：" get_service
+ elif [[ "$select" == "Get Password" ]]; then
 
- if grep -q "^$get_service" password.txt; then
+  read -p "サービス名を入力してください：" get_service
 
-  IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
+  if grep -q "^$get_service" password.txt; then
 
-  echo "サービス名：" ${array[0]}
-  echo "ユーザー名：" ${array[1]}
-  echo "パスワード：" ${array[2]}
+   IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
+
+   echo "サービス名：" ${array[0]}
+   echo "ユーザー名：" ${array[1]}
+   echo "パスワード：" ${array[2]}
+
+  else
+   echo "そのサービスは登録されていません。"
+  fi
+ elif [[ "$select" == "Exit" ]]; then
+
+  echo "Thank you!"
 
  else
-  echo "そのサービスは登録されていません。"
+
+  echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
+
  fi
-elif [[ "$select" == "Exit" ]]; then
-
- echo "Thank you!"
-
-else
-
- echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
-
-fi
-
-
+done
