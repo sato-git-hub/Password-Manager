@@ -11,8 +11,17 @@ while true; do
   read -p "ユーザー名を入力してください：" add_user
   read -p "パスワードを入力してください：" add_password
 
+  #password.txt.gpgが存在してたら
+  if [[ password.txt.gpg ]]; then
+
+   #パスコードを求められないように制御
+   gpg -d password.txt.gpg > password.txt
+
+  fi
+
   echo "$add_service:$add_user:$add_password" >> password.txt
 
+  #password.txt.gpgに一行追加することができない
   gpg -c password.txt
   rm -rf password.txt
 
