@@ -7,15 +7,15 @@ while true; do
 
  if [[ "$select" == "Add Password" ]]; then
 
-  read -p "サービス名を入力してください：" add_service
-  read -p "ユーザー名を入力してください：" add_user
-  read -p "パスワードを入力してください：" add_password
+     read -p "サービス名を入力してください：" add_service
+     read -p "ユーザー名を入力してください：" add_user
+     read -p "パスワードを入力してください：" add_password
 
   #password.txt.gpgが存在してたら
   if [[ password.txt.gpg ]]; then
 
-   #パスコードを求められないように制御
-   gpg -d password.txt.gpg > password.txt
+      #パスコードを求められないように制御
+      gpg -d password.txt.gpg > password.txt
 
   fi
 
@@ -33,7 +33,6 @@ while true; do
   read -p "サービス名を入力してください：" get_service
 
   gpg -d password.txt.gpg > password.txt
-  rm -rf password.txt.gpg
 
   if grep -q "^$get_service" password.txt; then
 
@@ -47,6 +46,8 @@ while true; do
    echo "そのサービスは登録されていません。"
   fi
 
+  #password.txtを暗号化しpassword.txt.gpgに移す
+  gpg -c password.txt
   rm -rf password.txt
 
  elif [[ "$select" == "Exit" ]]; then
