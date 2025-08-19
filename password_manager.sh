@@ -13,6 +13,9 @@ while true; do
 
   echo "$add_service:$add_user:$add_password" >> password.txt
 
+  gpg -c password.txt
+  rm -rf password.txt
+
   echo "パスワードの追加は成功しました。"
   echo "Thank you!"
 
