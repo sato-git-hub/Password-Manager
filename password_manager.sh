@@ -12,7 +12,7 @@ while true; do
      read -p "パスワードを入力してください：" add_password
 
   #password.txt.gpgが存在してたら
-  if [[ password.txt.gpg ]]; then
+  if [[ -f password.txt.gpg ]]; then
 
       #パスコードを求められないように制御
       gpg -d password.txt.gpg > password.txt
