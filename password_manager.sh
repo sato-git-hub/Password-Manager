@@ -14,8 +14,11 @@ while true; do
   #password.txt.gpgが存在してたら
   if [[ -f password.txt.gpg ]]; then
 
-      #パスコードを求められないように制御
-      gpg -d password.txt.gpg > password.txt
+      #パスフレーズを求められないように制御
+      echo a | gpg --passphrase-fd 0 --decrypt --batch --no-secmem-warning password.txt.gpg > password.txt
+
+
+     # gpg -d password.txt.gpg > password.txt
 
   fi
 
@@ -47,7 +50,10 @@ while true; do
   fi
 
   #password.txtを暗号化しpassword.txt.gpgに移す
-  gpg -c password.txt
+  #gpg -c password.txt
+#パスフレーズを求められないように制御
+  gpg --batch --passphrase-fd 0 -c password.txt <<< a
+
   rm -rf password.txt
 
  elif [[ "$select" == "Exit" ]]; then
