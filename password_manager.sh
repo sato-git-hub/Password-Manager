@@ -23,6 +23,9 @@ while true; do
 
   read -p "サービス名を入力してください：" get_service
 
+  gpg -d password.txt.gpg > password.txt
+  rm -rf password.txt.gpg
+
   if grep -q "^$get_service" password.txt; then
 
    IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
@@ -34,6 +37,9 @@ while true; do
   else
    echo "そのサービスは登録されていません。"
   fi
+
+  rm -rf password.txt
+
  elif [[ "$select" == "Exit" ]]; then
 
   echo "Thank you!"
