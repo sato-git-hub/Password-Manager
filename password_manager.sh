@@ -49,11 +49,6 @@ while true; do
    echo "そのサービスは登録されていません。"
   fi
 
-  #password.txtを暗号化しpassword.txt.gpgに移す
-  #gpg -c password.txt
-#パスフレーズを求められないように制御
-  gpg --batch --passphrase-fd 0 -c password.txt <<< a
-
   rm -rf password.txt
 
  elif [[ "$select" == "Exit" ]]; then
