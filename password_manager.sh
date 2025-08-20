@@ -14,18 +14,16 @@ while true; do
   #password.txt.gpgが存在してたら
   if [[ -f password.txt.gpg ]]; then
 
-      #パスフレーズを求められないように制御
-      echo a | gpg --passphrase-fd 0 --decrypt --batch --no-secmem-warning password.txt.gpg > password.txt
-
-
-     # gpg -d password.txt.gpg > password.txt
+      echo "a" | gpg --batch --yes --passphrase-fd 0 -d password.txt.gpg > password.txt
 
   fi
 
   echo "$add_service:$add_user:$add_password" >> password.txt
 
   #password.txt.gpgに一行追加することができない
-  gpg -c password.txt
+
+  echo "a" | gpg --batch --yes --passphrase-fd 0 -c password.txt
+
   rm -rf password.txt
 
   echo "パスワードの追加は成功しました。"
@@ -35,7 +33,7 @@ while true; do
 
   read -p "サービス名を入力してください：" get_service
 
-  gpg -d password.txt.gpg > password.txt
+  echo "a" | gpg --batch --yes --passphrase-fd 0 -d password.txt.gpg > password.txt
 
   if grep -q "^$get_service" password.txt; then
 
