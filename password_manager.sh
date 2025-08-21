@@ -7,11 +7,19 @@ echo "パスワードマネージャーへようこそ！"
 if [[ ! -f key.txt.gpg ]]; then
 
     read -sp "パスワードマネージャーのパスワードを設定してください:" add_key
-    echo "$add_key" > key.txt
-    gpg --batch --yes --passphrase "$add_key" -c key.txt 2>/dev/null
-    rm -rf key.txt
-    echo "パスワードの設定が完了しました"
-    exit 0
+
+    #空文字を暗号
+    if echo "" | gpg --batch --yes --passphrase "$add_key" -c -o key.txt.gpg 2>/dev/null; then
+
+       echo "パスワードの設定が完了しました"
+       exit 0
+
+    else
+
+       echo "パスワードの設定失敗"
+       exit 1
+
+    fi
 
 # $add_keyリセット
 
@@ -41,15 +49,15 @@ while true; do
 
   #password.txt.gpgが存在してたら
   if [[ -f password.txt.gpg ]]; then
-      echo "$key" | gpg --batch --yes --passphrase-fd 0 -d password.txt.gpg > password.txt 2>/dev/null
+
+      #password.txt.gpgに一行追加することができない
+      gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
 
   fi
 
   echo "$add_service:$add_user:$add_password" >> password.txt
 
-  #password.txt.gpgに一行追加することができない
-
-  echo "$key" | gpg --batch --yes --passphrase-fd 0 -c password.txt 2>/dev/null
+  gpg --batch --yes --passphrase "$key" -c password.txt 2>/dev/null
 
   rm -rf password.txt
 
@@ -60,7 +68,7 @@ while true; do
 
   read -p "サービス名を入力してください：" get_service
 
-  echo "$key" | gpg --batch --yes --passphrase-fd 0 -d password.txt.gpg > password.txt 2>/dev/null
+  gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
 
   if grep -q "^$get_service" password.txt; then
 
