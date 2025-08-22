@@ -41,7 +41,7 @@ while true; do
 read -p "サービス名を入力してください：" get_service
 `
 
-#### 入力されたサービス名が行頭にある行が、保存されたファイル内にあった場合
+#### 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にあった場合
 `
 if grep -q "^$get_service" password.txt; then
 `
@@ -56,7 +56,7 @@ echo "ユーザー名：" ${array[1]}
 echo "パスワード：" ${array[2]}
 `
 
-#### 入力されたサービス名が行頭にある行が、保存されたファイル内にない場合
+#### 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にない場合
 `
 else
    echo "そのサービスは登録されていません。"
@@ -78,6 +78,7 @@ elif [[ "$select" == "Exit" ]]; then
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
