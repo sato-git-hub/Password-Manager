@@ -29,7 +29,7 @@ while true; do
   echo "$add_service:$add_user:$add_password" >> password.txt
 `
 
-### Get Password が入力された時 **
+## **3.Get Password が入力された時**
 `
  elif [[ "$select" == "Get Password" ]]; then
 `
@@ -67,6 +67,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
