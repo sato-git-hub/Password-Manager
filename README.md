@@ -16,6 +16,7 @@ while true; do
 `
  if [[ "$select" == "Add Password" ]]; then
 `  
+
 #### サービス名、ユーザー名、パスワードの入力が求められる
  `
   read -p "サービス名を入力してください：" add_service
@@ -72,6 +73,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
