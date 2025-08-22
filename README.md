@@ -22,7 +22,7 @@ read -sp "パスワードマネージャーのパスワードを設定してく�
 ```
 if echo "" | gpg --batch --yes --passphrase "$add_key" -c -o key.txt.gpg 2>/dev/null; then
 ```
- - パスワード設定後はパスワードマネージャーが終了する
+- パスワード設定後はパスワードマネージャーが終了する
 ```
 exit 0
 ```
@@ -92,6 +92,7 @@ gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/
 ## ***6. 選択肢に該当のない入力をされた時***
 
  #### * もう一度入力し直すように、メッセージが表示される
+
 
 
 
