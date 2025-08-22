@@ -7,7 +7,7 @@
 ## ***1. パスワードマネージャーの起動*** 
 #### コマンドに`./password_manager.sh`と入力して起動
   
-## ***2. `次の選択肢から入力してください(Add Password/Get Password/Exit)`というメニューが表示されて、Exit が入力されるまではプログラムは終了せず、メニューが繰り返し表示される
+## ***2. `次の選択肢から入力してください(Add Password/Get Password/Exit)`というメニューが表示されて、Exit が入力されるまではプログラムは終了せず、メニューが繰り返し表示される***
 ```
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
@@ -79,6 +79,7 @@ elif [[ "$select" == "Exit" ]]; then
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
