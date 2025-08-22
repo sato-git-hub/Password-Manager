@@ -22,8 +22,8 @@ while true; do
   read -p "パスワードを入力してください：" add_password
 `
 
-### `サービス名:ユーザー名:パスワード`という形式で`password.txt`ファイルに保存
-### 入力された情報は’>>`で`password.txt`ファイルの最後の行に追記
+### 入力された情報は`サービス名:ユーザー名:パスワード`という形式で`password.txt`ファイルの最後の行に追記されて保存
+### ’>>`で`
 `
   echo "$add_service:$add_user:$add_password" >> password.txt
 `
@@ -64,6 +64,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
