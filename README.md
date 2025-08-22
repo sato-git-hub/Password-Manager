@@ -13,6 +13,7 @@ while true; do
 `  
 
 
+
   
 ## 2.Add Password が入力された時 
 `
@@ -69,6 +70,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
