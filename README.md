@@ -6,7 +6,7 @@
 　　
 
 ## 1. シェルスクリプトを実行すると、メニューが表示される 
-#### 1. Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
+#### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
 `
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
@@ -71,6 +71,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
