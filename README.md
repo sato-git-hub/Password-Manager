@@ -11,7 +11,7 @@
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
 `
-## 2.Add Password が入力された時 
+## ***2.Add Password が入力された時***
 `
  if [[ "$select" == "Add Password" ]]; then
 `
@@ -28,27 +28,25 @@ while true; do
   echo "$add_service:$add_user:$add_password" >> password.txt
 `
 
-## *3.Get Password が入力された時*
+## ***3.Get Password が入力された時***
 `
  elif [[ "$select" == "Get Password" ]]; then
 `
 
-### サービス名の入力が求められ、
+### サービス名の入力が求められる
 ` 
 read -p "サービス名を入力してください：" get_service
 `
 
-### 入力されたサービス名が行頭にある行が、保存されたファイル内にあれば　
+### 入力されたサービス名が行頭にある行が、保存されたファイル内にあれば
+### 該当した行のテキストを`:`で分割し変数`$array`に格納
+### サービス名、ユーザー名、パスワードを表示
 `
 if grep -q "^$get_service" password.txt; then
 `
-
-### 該当した行のテキストを`:`で分割し変数`$array`に格納
 `
    IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
 `
-
-### サービス名、ユーザー名、パスワードを表示
 `
    echo "サービス名：" ${array[0]}
    echo "ユーザー名：" ${array[1]}
@@ -61,11 +59,12 @@ else
    echo "そのサービスは登録されていません。"
 `
 
-### 選択肢に該当のない入力をされた時
+## 4. 選択肢に該当のない入力をされた時
 `
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
