@@ -59,10 +59,10 @@ else
 `
 
 ## ***4. Exitが入力された時***
+`elif [[ "$select" == "Exit" ]]; then
 `
- elif [[ "$select" == "Exit" ]]; then
-
-  echo "Thank you!"
+#### ループ処理から抜ける
+`
   exit 0
 `
 
@@ -71,6 +71,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
