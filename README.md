@@ -45,7 +45,7 @@ read -p "サービス名を入力してください：" get_service
 `
 if grep -q "^$get_service" password.txt; then
 `
-####  該当した行のテキストを`:`で分割し変数`$array`に格納
+    - 該当した行のテキストを`:`で分割し変数`$array`に格納
 `
 IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
 `
@@ -82,6 +82,7 @@ else
 ### First list item
    - First nested list item
    - Second nested list item
+
 
 
 
