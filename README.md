@@ -5,14 +5,7 @@
 
 ステップ２
 
-### シェルスクリプトを実行すると、
-`パスワードマネージャーへようこそ！
-次の選択肢から入力してください(Add Password/Get Password/Exit)：`
-### というメニューが表示される 
-` 
-echo "パスワードマネージャーへようこそ！"
-`
-
+### シェルスクリプトを実行すると、メニューが表示される 
 ### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
 `
 while true; do
@@ -74,6 +67,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
