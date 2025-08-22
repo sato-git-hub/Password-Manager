@@ -41,11 +41,10 @@ while true; do
 read -p "サービス名を入力してください：" get_service
 `
 
-#### 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にあった場合
+* 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にあった場合
 `
 if grep -q "^$get_service" password.txt; then
 `
-* a
     - 該当した行のテキストを`:`で分割し変数`$array`に格納
 `
 IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
@@ -83,6 +82,7 @@ else
 ### First list item
    - First nested list item
    - Second nested list item
+
 
 
 
