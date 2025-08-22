@@ -6,7 +6,7 @@
 　　
 
 ## 1.シェルスクリプトを実行すると、メニューが表示される 
-### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
+#### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
 `
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
@@ -15,14 +15,14 @@ while true; do
 `
  if [[ "$select" == "Add Password" ]]; then
 `
-### サービス名、ユーザー名、パスワードの入力が求められる
+#### サービス名、ユーザー名、パスワードの入力が求められる
  `
   read -p "サービス名を入力してください：" add_service
   read -p "ユーザー名を入力してください：" add_user
   read -p "パスワードを入力してください：" add_password
 `
 
-### 入力された情報は`サービス名:ユーザー名:パスワード`という形式で`password.txt`ファイルの最後の行に追記されて保存
+#### 入力された情報は`サービス名:ユーザー名:パスワード`という形式で`password.txt`ファイルの最後の行に追記されて保存
 `
   echo "$add_service:$add_user:$add_password" >> password.txt
 `
@@ -32,14 +32,14 @@ while true; do
  elif [[ "$select" == "Get Password" ]]; then
 `
 
-### サービス名の入力が求められる
+#### サービス名の入力が求められる
 ` 
 read -p "サービス名を入力してください：" get_service
 `
 
-### 入力されたサービス名が行頭にある行が、保存されたファイル内にあれば
-### 該当した行のテキストを`:`で分割し変数`$array`に格納
-### サービス名、ユーザー名、パスワードを表示
+#### 入力されたサービス名が行頭にある行が、保存されたファイル内にあれば
+#### 該当した行のテキストを`:`で分割し変数`$array`に格納
+#### サービス名、ユーザー名、パスワードを表示
 `
 if grep -q "^$get_service" password.txt; then
 `
@@ -52,7 +52,7 @@ if grep -q "^$get_service" password.txt; then
    echo "パスワード：" ${array[2]}
 `
 
-### 入力されたサービス名が行頭にある行が、保存されたファイル内にない場合
+#### 入力されたサービス名が行頭にある行が、保存されたファイル内にない場合
 `
 else
    echo "そのサービスは登録されていません。"
@@ -71,6 +71,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
