@@ -1,18 +1,18 @@
-## ***⚠️ mainブランチには、パスワードマネージャーSTEP2までの機能を載せました。***
-## ***developブランチには、STEP3までの機能と+aで追加機能を加えました。***
-## ***developブランチの方もご覧いただければ幸いです。⚠️***
+### ***⚠️ mainブランチには、パスワードマネージャーSTEP2までの機能を載せました。***
+### ***developブランチには、STEP3までの機能と+aで追加機能を加えました。***
+### ***developブランチの方もご覧いただければ幸いです。⚠️***
 
 
-ステップ２
+　　
 
-### シェルスクリプトを実行すると、メニューが表示される 
+## 1.シェルスクリプトを実行すると、メニューが表示される 
 ### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
 `
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
 `
 
-### Add Password が入力された時 
+## 2.Add Password が入力された時 
 `
  if [[ "$select" == "Add Password" ]]; then
 `
@@ -67,6 +67,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
