@@ -23,7 +23,7 @@ read -sp "パスワードマネージャーのパスワードを設定してく�
 ```
 if echo "" | gpg --batch --yes --passphrase "$add_key" -c -o key.txt.gpg 2>/dev/null; then
 ```
-- パスワード設定後はパスワードマネージャーが終了する
+ - パスワード設定後はパスワードマネージャーが終了する
 ```
 exit 0
 ```
@@ -38,7 +38,7 @@ read -sp "パスワードマネージャーのパスワードを入力してく�
 ```
 if gpg --batch --yes --passphrase "$key" -d key.txt.gpg > /dev/null 2>&1; then
 ```
-  - 復号化が成功した場合 パスワード認証が完了する 
+ - 復号化が成功した場合 パスワード認証が完了する 
 
 　- 復号化ができなかった場合
   -パスワードマネージャーを終了する
@@ -81,7 +81,7 @@ gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/
  - 該当した行のテキストを`:`で分割し、サービス名、ユーザー名、パスワードを画面に表示
    
 #### * 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にない場合
-  - サービスが登録されていないというメッセージが表示される
+ - サービスが登録されていないというメッセージが表示される
 
 #### * password.txtを削除
 
@@ -93,6 +93,7 @@ gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/
 ## ***6. 選択肢に該当のない入力をされた時***
 
  #### * もう一度入力し直すように、メッセージが表示される
+
 
 
 
