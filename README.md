@@ -45,15 +45,15 @@ read -p "サービス名を入力してください：" get_service
 `
 if grep -q "^$get_service" password.txt; then
 `
-　　#### * 該当した行のテキストを`:`で分割し変数`$array`に格納
-　　`
-   　　IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
-　　`
+####  該当した行のテキストを`:`で分割し変数`$array`に格納
+`
+IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
+`
 #### サービス名、ユーザー名、パスワードを表示
 `
-   echo "サービス名：" ${array[0]}
-   echo "ユーザー名：" ${array[1]}
-   echo "パスワード：" ${array[2]}
+echo "サービス名：" ${array[0]}
+echo "ユーザー名：" ${array[1]}
+echo "パスワード：" ${array[2]}
 `
 
 #### 入力されたサービス名が行頭にある行が、保存されたファイル内にない場合
@@ -63,7 +63,8 @@ else
 `
 
 ## ***5. Exitが入力された時***
-`elif [[ "$select" == "Exit" ]]; then
+`
+elif [[ "$select" == "Exit" ]]; then
 `
 #### ループ処理から抜ける
 `
@@ -77,6 +78,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
