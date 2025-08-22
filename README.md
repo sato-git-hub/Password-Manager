@@ -1,21 +1,65 @@
-### ***⚠️ mainブランチには、パスワードマネージャーSTEP2までの機能を載せました。***
-### ***developブランチには、STEP3までの機能と+aで追加機能を加えました。***
-### ***developブランチの方もご覧いただければ幸いです。⚠️***
+### ***⚠️developブランチには、STEP3までの機能と+aで追加機能を加えました。⚠️***
 
 
 　　
 ## ***1. パスワードマネージャーの起動*** 
 #### コマンドに`./password_manager.sh`と入力
+
+#### 初めて起動する時
+```
+if [[ ! -f key.txt.gpg ]]; then
+```
+ - パスワードマネージャーのパスワードを設定する
+ - パスワード設定中は入力文字を非表示化
+```
+read -sp "パスワードマネージャーのパスワードを設定してください:" add_key
+```
+ - 設定したパスワードを使って空文字を自動暗号化
+ - 暗号化された際に画面に表示されるgpgのログを非表示
+```
+if echo "" | gpg --batch --yes --passphrase "$add_key" -c -o key.txt.gpg 2>/dev/null; then
+```
+ - パスワード設定後はパスワードマネージャーが終了する
+```
+exit 0
+```
+ - 
+#### 2回目以降の起動時
+ - パスワードマネージャーのパスワードを入力する
+ - パスワード入力中は入力文字を非表示化
+```
+read -sp "パスワードマネージャーのパスワードを入力してください:" key
+```
+ - 入力したパスワードを使って、パスワードを設定したときに暗号化した空文字を復号化する
+```
+if gpg --batch --yes --passphrase "$key" -d key.txt.gpg > /dev/null 2>&1; then
+```
+  - 復号化が成功した場合 2.に進む
+```
+echo "パスワード認証が完了しました"
+```
+　- 復号化ができなかった場合
+  -パスワードマネージャーを終了する
   
-#### 起動すると、`次の選択肢から入力してください(Add Password/Get Password/Exit)`というメニューが表示されて、Exit が入力されるまではプログラムは終了せず、メニューが繰り返し表示される
+``` 
+echo "パスワード認証失敗"
+exit 1
 ```
-while true; do
- read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
-```
+## ***2. `次の選択肢から入力してください(Add Password/Get Password/Exit)`というメニューが表示されて、Exit が入力されるまではプログラムは終了せず、メニューが繰り返し表示される***
 
 ## ***3. `Add Password`が入力された時***
+
+#### 初めて`Add Password`が入力された時(password.txt.gpgが存在してた場合)
 ```
- if [[ "$select" == "Add Password" ]]; then
+if [[ -f password.txt.gpg ]]; then
+```
+ - password.txt.gpgファイルを復号化し、password.txtファイルに保存
+```
+gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
+```
+#### 入力された情報を暗号化
+```
+echo "$add_service:$add_user:$add_password" >> password.txt
 ```
 
 #### サービス名、ユーザー名、パスワードの入力が求められる
@@ -79,6 +123,7 @@ elif [[ "$select" == "Exit" ]]; then
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
