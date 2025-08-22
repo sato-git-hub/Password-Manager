@@ -11,6 +11,7 @@
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
 `
+
 ## ***2. Add Password が入力された時***
 `
  if [[ "$select" == "Add Password" ]]; then
@@ -71,6 +72,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
