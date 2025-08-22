@@ -58,11 +58,20 @@ else
    echo "そのサービスは登録されていません。"
 `
 
-## 5. 選択肢に該当のない入力をされた時
+## ***4. Exitが入力された時***
+`
+ elif [[ "$select" == "Exit" ]]; then
+
+  echo "Thank you!"
+  exit 0
+`
+
+## ***5. 選択肢に該当のない入力をされた時***
 `
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
