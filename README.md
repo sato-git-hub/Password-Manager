@@ -71,7 +71,7 @@ rm -rf password.txt
 
 #### ・ サービス名の入力が求められる
 
-####　・`変数$key`を使ってpassword.txt.gpgファイルを復号化し、password.txtファイルに保存
+#### ・ `変数$key`を使ってpassword.txt.gpgファイルを復号化し、password.txtファイルに保存
 `
 gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
 `
@@ -92,6 +92,7 @@ gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/
 ## ***6. 選択肢に該当のない入力をされた時***
 
  #### ・ もう一度入力し直すように、メッセージが表示される
+
 
 
 
