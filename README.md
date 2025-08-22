@@ -4,15 +4,17 @@
 
 
 　　
-
-## ***1. シェルスクリプトを実行すると、メニューが表示される*** 
+## ***1. パスワードマネージャーの起動*** 
+#### コマンドに`./password_manager`と入力
+  
+## ***2. シェルスクリプトを実行すると、メニューが表示される*** 
 #### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
 `
 while true; do
  read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
 `  
 
-## ***2. Add Password が入力された時***
+## ***3. Add Password が入力された時***
 `
  if [[ "$select" == "Add Password" ]]; then
 `  
@@ -29,7 +31,7 @@ while true; do
   echo "$add_service:$add_user:$add_password" >> password.txt
 `
 
-## ***3. Get Password が入力された時***
+## ***4. Get Password が入力された時***
 `
  elif [[ "$select" == "Get Password" ]]; then
 `
@@ -60,7 +62,7 @@ else
    echo "そのサービスは登録されていません。"
 `
 
-## ***4. Exitが入力された時***
+## ***5. Exitが入力された時***
 `elif [[ "$select" == "Exit" ]]; then
 `
 #### ループ処理から抜ける
@@ -68,13 +70,14 @@ else
   exit 0
 `
 
-## ***5. 選択肢に該当のない入力をされた時***
+## ***6. 選択肢に該当のない入力をされた時***
 
  #### もう一度入力し直すように、メッセージが表示される
 `
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
