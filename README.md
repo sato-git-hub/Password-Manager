@@ -42,14 +42,14 @@ read -p "サービス名を入力してください：" get_service
 `
 
 #### 入力されたサービス名が行頭にある行が、保存されたファイル内にあれば
-#### 該当した行のテキストを`:`で分割し変数`$array`に格納
-#### サービス名、ユーザー名、パスワードを表示
 `
 if grep -q "^$get_service" password.txt; then
 `
+#### 該当した行のテキストを`:`で分割し変数`$array`に格納
 `
    IFS=":" read -r -a array <<< $(grep "^$get_service" password.txt)
 `
+#### サービス名、ユーザー名、パスワードを表示
 `
    echo "サービス名：" ${array[0]}
    echo "ユーザー名：" ${array[1]}
@@ -77,6 +77,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
