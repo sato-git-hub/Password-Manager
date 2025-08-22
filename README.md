@@ -49,8 +49,6 @@ if gpg --batch --yes --passphrase "$key" -d key.txt.gpg > /dev/null 2>&1; then
 
 #### ・ パスワードマネージャーに登録するサービス名、ユーザー名、パスワードの入力が求められる
 
-#### ・ 入力された情報は`サービス名:ユーザー名:パスワード`という形式で`password.txt`ファイルに追記されて保存
-
 #### ・ `Add Password`と入力されたのが、2回目以降の場合(password.txt.gpgが存在してた場合)
 ```
 if [[ -f password.txt.gpg ]]; then
@@ -59,6 +57,8 @@ if [[ -f password.txt.gpg ]]; then
 ```
 gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
 ```
+#### ・ 入力されたサービス名、ユーザー名、パスワードは、`サービス名:ユーザー名:パスワード`という形式でpassword.txtファイルに追記されて保存
+
 #### ・ `変数$key`を使ってpassword.txtファイルを暗号化
 ```
 gpg --batch --yes --passphrase "$key" -c password.txt 2>/dev/null
@@ -93,6 +93,7 @@ gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/
 ## ***6. 選択肢に該当のない入力をされた時***
 
  #### ・ もう一度入力し直すように、メッセージが表示される
+
 
 
 
