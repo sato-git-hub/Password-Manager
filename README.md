@@ -7,7 +7,7 @@
 ## ***1. パスワードマネージャーの起動*** 
 #### コマンドに`./password_manager.sh`と入力
   
-## ***2. シェルスクリプトを実行すると、メニューが表示される*** 
+## ***2. 起動すると、メニューが表示される*** 
 #### Exit が入力されるまではプログラムは終了せず、「次の選択肢から入力してください(Add Password/Get Password/Exit)：」が繰り返される 
 `
 while true; do
@@ -77,6 +77,7 @@ else
 else
   echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 `
+
 
 
 
