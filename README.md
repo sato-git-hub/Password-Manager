@@ -84,7 +84,6 @@ while true; do
 if [[ "$select" == "Add Password" ]]; then
 ```
 - パスワードマネージャーに登録するサービス名、ユーザー名、パスワード（以下情報という）の入力が求められる
-- 入力された情報を、それぞれの変数に格納する
 ```
 read -p "サービス名を入力してください：" add_service
 read -p "ユーザー名を入力してください：" add_user
@@ -102,7 +101,7 @@ if [[ -f password.txt.gpg ]]; then
 ```
 echo "$add_service:$add_user:$add_password" >> password.txt
 ```
--`変数$key`を使ってpassword.txtファイルを暗号化
+- `変数$key`を使ってpassword.txtファイルを暗号化
 ```
 gpg --batch --yes --passphrase "$key" -c password.txt 2>/dev/null
 ```
@@ -169,6 +168,7 @@ else
 ```
 echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
