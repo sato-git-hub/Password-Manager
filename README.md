@@ -79,19 +79,19 @@ while true; do
 ```
 ### `Add Password`が入力された場合
 
-#### 変数`$select`が`Add Password`と一致した場合
+- 変数`$select`が`Add Password`と一致した場合
 ```
 if [[ "$select" == "Add Password" ]]; then
 ```
-#### パスワードマネージャーに登録するサービス名、ユーザー名、パスワード（以下情報）の入力が求められる
-#### 入力された情報を、それぞれの変数に格納する。
+- パスワードマネージャーに登録するサービス名、ユーザー名、パスワード（以下情報）の入力が求められる
+- 入力された情報を、それぞれの変数に格納する。
 ```
 read -p "サービス名を入力してください：" add_service
 read -p "ユーザー名を入力してください：" add_user
 read -p "パスワードを入力してください：" add_password
 
 ```
-#### `Add Password`と入力されたのが2回目以降の場合
+- `Add Password`と入力されたのが2回目以降の場合
 
 - password.txt.gpgファイルが存在していれば、
 ```
@@ -101,15 +101,15 @@ if [[ -f password.txt.gpg ]]; then
 ```
 gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
 ```
-#### 入力された情報は、`サービス名:ユーザー名:パスワード`という形式でpassword.txtファイルに追記されて保存
+- 入力された情報は、`サービス名:ユーザー名:パスワード`という形式でpassword.txtファイルに追記されて保存
 ```
 echo "$add_service:$add_user:$add_password" >> password.txt
 ```
-#### `変数$key`を使ってpassword.txtファイルを暗号化
+-`変数$key`を使ってpassword.txtファイルを暗号化
 ```
 gpg --batch --yes --passphrase "$key" -c password.txt 2>/dev/null
 ```
-#### password.txtを削除
+- password.txtを削除
 ```
 rm -rf password.txt
 ```
@@ -172,6 +172,7 @@ else
 ```
 echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
