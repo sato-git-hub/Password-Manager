@@ -72,7 +72,7 @@ else
 ```
 ## パスワードマネージャーのメニュー選択
 
-- メニューの中から１つ選んで入力する。（変数`$select`）
+- メニューの中から１つ選んで入力する（変数`$select`）
 - 選択肢の`Exit` が入力されるまではパスワードマネージャーは終了せず、メニューが繰り返し表示される
 
 ```
@@ -92,8 +92,7 @@ read -p "ユーザー名を入力してください：" add_user
 read -p "パスワードを入力してください：" add_password
 
 ```
-- `password.txt.gpg`ファイルが存在している場合
-- `変数$key`を使って`password.txt.gpg`ファイルを復号化（保存先: password.txt）
+- `password.txt.gpg`ファイルが存在している場合、`変数$key`を使って`password.txt.gpg`ファイルを復号化（保存先: password.txt）
 ```
 if [[ -f password.txt.gpg ]]; then
 
@@ -125,8 +124,7 @@ read -p "サービス名を入力してください：" get_service
 ```
 gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/null
 ```
-- 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にあった場合
-- 該当した行のテキストを`:`で分割し、サービス名、ユーザー名、パスワードを画面に表示
+- 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にあった場合、該当した行のテキストを`:`で分割し、サービス名、ユーザー名、パスワードを画面に表示
 ```
 if grep -q "^$get_service" password.txt; then
 
@@ -136,8 +134,7 @@ if grep -q "^$get_service" password.txt; then
     echo "パスワード：" ${array[2]}
 
 ```
-- 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にない場合
-- サービスが登録されていないというメッセージが表示される
+- 入力されたサービス名が行頭にある行が、`password.txt`ファイル内にない場合、サービスが登録されていないというメッセージが表示される
 ```
 else
     echo "そのサービスは登録されていません。"
@@ -148,8 +145,7 @@ rm -rf password.txt
 ```
 ## `Exit`が入力された場合
 
-- `$select`が`Exit`と一致した場合
-- パスワードマネージャーを終了する(ループ処理から抜ける)
+- `$select`が`Exit`と一致した場合、パスワードマネージャーを終了する(ループ処理から抜ける)
 ```
 elif [[ "$select" == "Exit" ]]; then
 
@@ -159,13 +155,13 @@ elif [[ "$select" == "Exit" ]]; then
 
 ## 選択肢に該当のない入力をされた場合
 
-- 選択肢にあてはまなければ
-- 選択肢の再入力を求めるメッセージを表示
+- 選択肢にあてはまなければ、選択肢の再入力を求めるメッセージを表示
 ```
 else
 
     echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
