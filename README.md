@@ -57,7 +57,7 @@ read -sp "パスワードマネージャーのパスワードを入力してく�
 ```
 if gpg --batch --yes --passphrase "$key" -d key.txt.gpg > /dev/null 2>&1; then
 ```
-- 復号化が成功した場合 パスワード認証が完了
+- 復号化が成功した場合、パスワード認証が完了したメッセージが表示される
 ```
 echo "パスワード認証が完了しました"
 ```
@@ -172,6 +172,7 @@ else
 ```
 echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
