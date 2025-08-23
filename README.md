@@ -79,7 +79,7 @@ while true; do
 ```
 ### `Add Password`が入力された場合
 
-#### 変数`$select`が`Add Password`と一致した場合
+#### * 変数`$select`が`Add Password`と一致した場合
 ```
 if [[ "$select" == "Add Password" ]]; then
 ```
@@ -172,6 +172,7 @@ else
 ```
 echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。"
 ```
+
 
 
 
