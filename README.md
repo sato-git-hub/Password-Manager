@@ -38,7 +38,7 @@ read -sp "パスワードマネージャーのパスワードを入力してく�
 ```
 if gpg --batch --yes --passphrase "$key" -d key.txt.gpg > /dev/null 2>&1; then
 ```
- -
+ 
    - 復号化が成功した場合 パスワード認証が完了
    - 復号化ができなかった場合、パスワードマネージャーを終了する
    
@@ -93,6 +93,7 @@ gpg --batch --yes --passphrase "$key" -d password.txt.gpg > password.txt 2>/dev/
 ## ***6. 選択肢に該当のない入力をされた時***
 
  #### ・ もう一度入力し直すように、メッセージが表示される
+
 
 
 
