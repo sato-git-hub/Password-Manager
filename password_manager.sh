@@ -59,7 +59,7 @@ while true; do
 
   gpg --batch --yes --passphrase "$key" -c password.txt 2>/dev/null
 
-  rm -rf password.txt
+  rm password.txt
 
   echo "パスワードの追加は成功しました。"
   echo "Thank you!"
@@ -82,7 +82,7 @@ while true; do
    echo "そのサービスは登録されていません。"
   fi
 
-  rm -rf password.txt
+  rm password.txt
 
  elif [[ "$select" == "Exit" ]]; then
 
